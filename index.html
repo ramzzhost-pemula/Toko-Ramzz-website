@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>ALL PRODUK RAMZZ HOSTING</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #3a36db;
+      --primary-dark: #2a27b8;
+      --primary-light: #5a56e9;
+      --accent: #ff4d8d;
+      --secondary: #8a2be2;
+      --text: #1e1e2e;
+      --text-light: #6c757d;
+      --bg: #f8f9ff;
+      --card-bg: #ffffff;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --border-radius: 12px;
+      --border-radius-lg: 20px;
+      --border-radius-xl: 28px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #3a36db, #6a56e9, #8a2be2);
+      color: white;
+      padding: 5rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background-size: 300% 300%;
+      animation: gradientBG 12s ease infinite;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-weight: 400;
+    }
+    
+    /* Buttons */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      background: white;
+      color: var(--primary);
+      padding: 1rem 2.2rem;
+      border-radius: var(--border-radius-xl);
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+      margin: 0.5rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-button:hover::after {
+      opacity: 1;
+    }
+    
+    .cta-button.secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .cta-button.secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    
+    .cta-button i {
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+    }
+    
+    /* Navigation */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+    
+    nav button {
+      margin: 0.3rem;
+      padding: 0.8rem 1.8rem;
+      background: transparent;
+      color: var(--text);
+      border: none;
+      border-radius: var(--border-radius-xl);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    nav button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: -1;
+    }
+    
+    nav button i {
+      margin-right: 0.7rem;
+      font-size: 1rem;
+    }
+    
+    nav button.active, nav button:hover {
+      color: white;
+      box-shadow: 0 8px 20px rgba(67, 97, 238, 0.2);
+      transform: translateY(-3px);
+    }
+    
+    nav button.active::before, nav button:hover::before {
+      opacity: 1;
+    }
+    
+    /* Main Container */
+    .container {
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+    
+    /* Search Box */
+    .search-box {
+      position: relative;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: 1.2rem 1.8rem 1.2rem 4rem;
+      font-size: 1.05rem;
+      border: none;
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      background: white;
+      font-weight: 500;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+    
+    .search-box input:focus {
+      border-color: rgba(58, 54, 219, 0.3);
+      outline: none;
+      box-shadow: 0 10px 30px rgba(58, 54, 219, 0.1);
+    }
+    
+    .search-box i {
+      position: absolute;
+      left: 1.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      z-index: 2;
+      font-size: 1.2rem;
+    }
+    
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    /* Card Styles */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      overflow: hidden;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.6s ease-out;
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    .card.featured {
+      border: 2px solid var(--accent);
+    }
+    
+    .card-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card-header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      right: -50%;
+      bottom: -50%;
+      background: linear-gradient(45deg, transparent 33%, rgba(255,255,255,0.1) 33%, rgba(255,255,255,0.1) 66%, transparent 66%);
+      background-size: 40px 40px;
+      opacity: 0.2;
+      transform: rotate(45deg);
+      animation: slide 4s linear infinite;
+    }
+    
+    @keyframes slide {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+    
+    .product-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .card-body {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .price {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 2rem;
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+    }
+    
+    .price::before {
+      content: "Rp";
+      font-size: 1.3rem;
+      margin-right: 0.3rem;
+      opacity: 0.8;
+      font-weight: 600;
+    }
+    
+    .desc {
+      color: var(--text-light);
+      font-size: 1rem;
+      margin-bottom: 1.8rem;
+      line-height: 1.7;
+    }
+    
+    .features {
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.7rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    
+    .feature i {
+      color: var(--primary);
+      margin-right: 0.8rem;
+      font-size: 0.9rem;
+    }
+    
+    .card-footer {
+      padding: 0 2rem 2rem;
+      margin-top: auto;
+    }
+    
+    .card button {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      padding: 1.1rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      box-shadow: 0 5px 15px rgba(58, 54, 219, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .card button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(58, 54, 219, 0.4);
+    }
+    
+    .card button:hover::after {
+      opacity: 1;
+    }
+    
+    .card button i {
+      margin-right: 0.8rem;
+      font-size: 1.1rem;
+    }
+    
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--border-radius);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .whm-badge {
+      background: rgba(58, 54, 219, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(58, 54, 219, 0.15);
+    }
+    
+    .smtp-badge {
+      background: rgba(255, 77, 141, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(255, 77, 141, 0.15);
+    }
+    
+    .domain-badge {
+      background: rgba(138, 43, 226, 0.1);
+      color: var(--secondary);
+      border: 1px solid rgba(138, 43, 226, 0.15);
+    }
+    
+    .jasteb-badge {
+      background: rgba(42, 39, 184, 0.1);
+      color: var(--primary-dark);
+      border: 1px solid rgba(42, 39, 184, 0.15);
+    }
+    
+    .sc-badge {
+      background: rgba(90, 86, 233, 0.1);
+      color: var(--primary-light);
+      border: 1px solid rgba(90, 86, 233, 0.15);
+    }
+    
+    /* Ribbon */
+    .ribbon {
+      position: absolute;
+      top: 15px;
+      right: -35px;
+      background: var(--accent);
+      color: white;
+      padding: 0.4rem 3rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transform: rotate(45deg);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Popup */
+    #popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+      animation: fadeIn 0.4s;
+    }
+    
+    #popup .box {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--border-radius-lg);
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      transform: scale(0.9);
+      animation: popIn 0.4s forwards;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #popup .box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    
+    @keyframes popIn {
+      to { transform: scale(1); }
+    }
+    
+    #popup h3 {
+      margin-bottom: 1.5rem;
+      color: var(--primary-dark);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #popup h3 i {
+      margin-right: 1rem;
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+    
+    #popup p {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    #popup button {
+      margin: 0;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+      flex: 1;
+      min-width: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    #popup button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    #popup button:hover::after {
+      opacity: 1;
+    }
+    
+    .wa1 {
+      background: linear-gradient(135deg, #25D366, #1da851);
+      color: white;
+    }
+    
+    .wa1:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    }
+    
+    .wa2 {
+      background: linear-gradient(135deg, #128C7E, #0e756a);
+      color: white;
+    }
+    
+    .wa2:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(18, 140, 126, 0.4);
+    }
+    
+    .close-btn {
+      background: #f8f9fa;
+      color: #555;
+      width: 100%;
+    }
+    
+    .close-btn:hover {
+      background: #e9ecef;
+      transform: translateY(-3px);
+    }
+    
+    /* Payment Page */
+    #paymentPage {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg);
+      z-index: 1001;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 1rem;
+      animation: fadeIn 0.4s;
+    }
+    
+    .payment-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .payment-header h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+    
+    .back-button {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+    
+    .payment-content {
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .qris-image {
+      max-width: 300px;
+      margin: 0 auto 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .payment-details {
+      margin: 1.5rem 0;
+      background: rgba(58, 54, 219, 0.05);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(58, 54, 219, 0.1);
+    }
+    
+    .payment-details p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+    
+    .payment-details strong {
+      color: var(--primary);
+    }
+    
+    .status-container {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      border-radius: var(--border-radius);
+      background: rgba(0,0,0,0.03);
+    }
+    
+    .status-message {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .status-pending {
+      color: #FFA500;
+    }
+    
+    .status-success {
+      color: #25D366;
+    }
+    
+    .status-failed {
+      color: #ff4d4d;
+    }
+    
+    .action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.action-button {
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 100%;
+}
+
+.check-status {
+  background: var(--primary);
+  color: white;
+}
+
+.check-status:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(58, 54, 219, 0.4);
+}
+
+.whatsapp-button {
+  background: linear-gradient(135deg, #25D366, #1da851);
+  color: white;
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+}
+
+.close-button {
+  background: #f8f9fa;
+  color: #555;
+}
+
+.close-button:hover {
+  background: #e9ecef;
+  transform: translateY(-3px);
+}
+    
+    .whatsapp-button i {
+      margin-right: 0.8rem;
+    }
+    
+    .expired-notice {
+      color: #ff4d4d;
+      font-weight: 600;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
+      color: white;
+      font-size: 1rem;
+      margin-top: 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    footer p {
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      display: inline-block;
+      background: linear-gradient(135deg, white, #e0e0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .social-links a {
+      color: white;
+      background: rgba(255, 255, 255, 0.15);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1.3rem;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-5px) scale(1.1);
+    }
+    
+    .copyright {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Floating animation for featured products */
+    .featured {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+    
+    @media (max-width: 992px) {
+      header h1 {
+        font-size: 2.8rem;
+      }
+      
+      header p {
+        font-size: 1.1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+      
+      .price {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 4rem 1rem;
+      }
+      
+      header h1 {
+        font-size: 2.4rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      
+      .card-body {
+        padding: 1.8rem;
+      }
+      
+      .card-footer {
+        padding: 0 1.8rem 1.8rem;
+      }
+      
+      nav button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      #popup .box {
+        padding: 1.5rem;
+      }
+      
+      .qris-image {
+        max-width: 250px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      header {
+        padding: 3rem 1rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .cta-button {
+        padding: 0.9rem 1.8rem;
+        font-size: 0.95rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .search-box input {
+        padding: 1.1rem 1.5rem 1.1rem 3.5rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      #popup .box {
+        padding: 1.2rem;
+      }
+      
+      #popup .button-group {
+        flex-direction: column;
+      }
+      
+      #popup button {
+        width: 100%;
+      }
+      
+      .footer-logo {
+        font-size: 1.8rem;
+      }
+      
+      .social-links a {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+      }
+      
+      .qris-image {
+        max-width: 200px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<audio autoplay loop>
+        <source src="https://files.catbox.moe/chyczo.mp3" type="audio/mpeg">
+    </audio>
+<header>
+  <div class="header-content">
+    <h1>ALL PRODUK RAMZZ HOSTING</h1>
+    <p>Solusi lengkap kebutuhan hosting dan server dengan kualitas terbaik dan harga kompetitif</p>
+    <div>
+      <a href="#products" class="cta-button">
+        <i class="fas fa-shopping-bag"></i> Lihat Produk
+      </a>
+      <a href="#contact" class="cta-button" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3);">
+        <i class="fas fa-headset"></i> Hubungi Kami
+      </a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <button class="category-btn active" onclick="filterCategory('all', event)">
+    <i class="fas fa-list"></i> SEMUA
+  </button>
+  <button class="category-btn" onclick="filterCategory('whm', event)">
+    <i class="fas fa-server"></i> WHM
+  </button>
+  <button class="category-btn" onclick="filterCategory('smtp', event)">
+    <i class="fas fa-envelope"></i> SMTP
+  </button>
+  <button class="category-btn" onclick="filterCategory('domain', event)">
+    <i class="fas fa-globe"></i> DOMAIN
+  </button>
+  <button class="category-btn" onclick="filterCategory('jasteb', event)">
+    <i class="fas fa-user-shield"></i> JASTEB
+  </button>
+  <button class="category-btn" onclick="filterCategory('sc', event)">
+    <i class="fas fa-code"></i> ALL SC
+  </button>
+</nav>
+
+<div class="container" id="products">
+  <div class="section-title">
+    <h2>Produk Kami</h2>
+  </div>
+  
+  <div class="search-box">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" placeholder="Cari produk..." onkeyup="liveSearch()">
+  </div>
+
+  <div class="product-grid" id="produkList">
+    <!-- WHM Products -->
+    <div class='card whm featured'>
+      <div class='ribbon'>POPULER</div>
+      <div class='card-header'>
+        <div class='product-title'>WHM MINI <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>20.000</div>
+        <div class='desc'>Akun WHM dengan fitur dasar untuk kebutuhan hosting sederhana dengan garansi stabil dan aman.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Garansi stabil</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Keamanan terjamin</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Support 24/7</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('WHM MINI', 20000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>WHM MEDIUM <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>25.000</div>
+        <div class='desc'>Akun WHM dengan kapasitas lebih besar dari versi Mini, cocok untuk kebutuhan menengah.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kapasitas lebih besar</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Performa optimal</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('WHM MEDIUM', 25000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>WHM EXTRA <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>30.000</div>
+        <div class='desc'>Akun WHM dengan fitur tambahan untuk kebutuhan lebih kompleks dan performa tinggi.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Fitur tambahan</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Performa tinggi</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('WHM EXTRA', 30000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>WHM SUPER <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>35.000</div>
+        <div class='desc'>Akun WHM dengan kapasitas maksimal dan fitur premium untuk kebutuhan profesional.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kapasitas maksimal</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Fitur premium</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('WHM SUPER', 35000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>MWHM MINI <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>30.000</div>
+        <div class='desc'>Akun WHM dengan akses open WHM untuk kebutuhan khusus dengan stabilitas terjamin.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Akses open WHM</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Stabilitas terjamin</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('MWHM MINI', 30000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>MWHM MEDIUM <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>35.000</div>
+        <div class='desc'>Versi Medium dari MWHM dengan akses open WHM dan kapasitas lebih besar.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kapasitas lebih besar</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Akses open WHM</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('MWHM MEDIUM', 35000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>MWHM EXTRA <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>40.000</div>
+        <div class='desc'>Akun MWHM dengan fitur ekstra dan akses open WHM untuk kebutuhan khusus.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Fitur ekstra</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kebutuhan khusus</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('MWHM EXTRA', 40000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>MWHM SUPER <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>45.000</div>
+        <div class='desc'>Akun MWHM dengan kapasitas maksimal dan akses open WHM untuk kebutuhan profesional.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kapasitas maksimal</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kebutuhan profesional</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('MWHM SUPER', 45000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>ADMIN WHM <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>55.000</div>
+        <div class='desc'>Akses admin WHM yang bisa membuka MWHM/WHM dengan kontrol penuh.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kontrol penuh</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Akses admin</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('ADMIN WHM', 55000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>CEO WHM <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>65.000</div>
+        <div class='desc'>Akses level CEO yang bisa membuka Admin WHM/MWHM/WHM dengan hak akses penuh.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Hak akses penuh</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Level CEO</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('CEO WHM', 65000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card whm'>
+      <div class='card-header'>
+        <div class='product-title'>WAKIL FOUNDER <span class="badge whm-badge">WHM</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>80.000</div>
+        <div class='desc'>Akses tertinggi untuk membuka semua level WHM dengan kontrol sistem penuh.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kontrol sistem penuh</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Akses tertinggi</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('WAKIL FOUNDER', 80000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <!-- SMTP Products -->
+    <div class='card smtp featured'>
+      <div class='ribbon'>TERLARIS</div>
+      <div class='card-header'>
+        <div class='product-title'>UNLI 1 MINGGU <span class="badge smtp-badge">SMTP</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>40.000</div>
+        <div class='desc'>Akses SMTP unlimited selama 1 minggu dengan garansi 3 hari penggantian jika bermasalah.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Unlimited</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Garansi 3 hari</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('UNLI 1 MINGGU', 40000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card smtp'>
+      <div class='card-header'>
+        <div class='product-title'>UNLI 2 MINGGU <span class="badge smtp-badge">SMTP</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>80.000</div>
+        <div class='desc'>Akses SMTP unlimited selama 2 minggu dengan garansi 3 hari penggantian jika bermasalah.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Unlimited</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> 2 Minggu</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('UNLI 2 MINGGU', 80000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card smtp'>
+      <div class='card-header'>
+        <div class='product-title'>UNLI 3 MINGGU <span class="badge smtp-badge">SMTP</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>110.000</div>
+        <div class='desc'>Akses SMTP unlimited selama 3 minggu dengan garansi 3 hari penggantian jika bermasalah.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Unlimited</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> 3 Minggu</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('UNLI 3 MINGGU', 110000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card smtp'>
+      <div class='card-header'>
+        <div class='product-title'>UNLI 1 BULAN <span class="badge smtp-badge">SMTP</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>130.000</div>
+        <div class='desc'>Akses SMTP unlimited selama 1 bulan penuh dengan garansi penggantian jika bermasalah.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Unlimited</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> 1 Bulan</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('UNLI 1 BULAN', 130000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <!-- Domain Products -->
+    <div class='card domain'>
+      <div class='card-header'>
+        <div class='product-title'>OPEN RESSELER SUBDO <span class="badge domain-badge">DOMAIN</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>20.000</div>
+        <div class='desc'>Akses reseller domain dengan jaminan anti merah dan stabilitas tinggi.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Anti merah</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Stabilitas tinggi</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('OPEN RESSELER SUBDO', 20000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <!-- JASTEB Products -->
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>JASTEB <span class="badge jasteb-badge">JASTEB</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>5</div>
+        <div class='desc'>Akses JASTEB dengan peluang mendapatkan akun GG dan berbagai fitur menarik.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Peluang akun GG</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Fitur menarik</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('JASTEB', 5)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>UNCHECK <span class="badge jasteb-badge">JASTEB</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>5.000</div>
+        <div class='desc'>Akses UNCHECK dengan peluang mendapatkan akun GG dan berbagai keuntungan.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Peluang akun GG</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Berbagai keuntungan</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('UNCHECK', 5000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>PT JASTEB <span class="badge jasteb-badge">JASTEB</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>10.000</div>
+        <div class='desc'>Akses PT JASTEB yang bisa membuka JASTEB/UNCHECK dengan kontrol lebih luas.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kontrol lebih luas</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Akses PT</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('PT JASTEB', 10000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>TEAM RESS <span class="badge jasteb-badge">JASTEB</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>15.000</div>
+        <div class='desc'>Akses Team Ress yang bisa membuka PT JASTEB dengan berbagai keunggulan.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Berbagai keunggulan</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Akses Team Ress</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('TEAM RESS', 15000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>ADMIN TEAM RESS <span class="badge jasteb-badge">JASTEB</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>25.000</div>
+        <div class='desc'>Akses Admin Team Ress yang bisa membuka Team Ress dengan hak akses admin.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Hak akses admin</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kontrol penuh</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('ADMIN TEAM RESS', 25000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>MARGA JASTEB <span class="badge jasteb-badge">JASTEB</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>80.000</div>
+        <div class='desc'>Akses Marga JASTEB untuk membuka semua level di bawahnya dengan kontrol penuh.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kontrol penuh</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Semua level</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('MARGA JASTEB', 80000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>FOUNDER MARGA JASTEB <span class="badge jasteb-badge">JASTEB</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>80.000</div>
+        <div class='desc'>Akses Founder Marga JASTEB dengan hak akses penuh dan kontrol sistem menyeluruh.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Hak akses penuh</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kontrol menyeluruh</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('FOUNDER MARGA JASTEB', 80000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>JASA PEMBUATAN MARGA JASTEB <span class="badge jasteb-badge">JASTEB</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>100.000</div>
+        <div class='desc'>Layanan pembuatan Marga JASTEB custom sesuai kebutuhan dengan fitur lengkap.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Custom</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Fitur lengkap</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('JASA PEMBUATAN MARGA JASTEB', 100000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>JASA PEMBUATAN MARGA JASTEB <span class="badge jasteb-badge">Tes Saja</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>1</div>
+        <div class='desc'>tes saja</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Custom</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Fitur lengkap</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('tes doang', 1)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>MURHOST <span class="badge jasteb-badge">MURHOST</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>40.000</div>
+        <div class='desc'>Akses Murhost dengan kemampuan membuka berbagai level dan fitur khusus.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Berbagai level</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Fitur khusus</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('MURHOST', 40000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card jasteb'>
+      <div class='card-header'>
+        <div class='product-title'>SEWA RESSULT <span class="badge jasteb-badge">SEWA RESS</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>60.000</div>
+        <div class='desc'>Cocok untuk marga mu yang ress nya seret.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Solusi ress seret</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Performa optimal</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('SEWA RESS', 60000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <!-- SC Products -->
+    <div class='card sc'>
+      <div class='card-header'>
+        <div class='product-title'>SC CREATE PANEL JASTEB <span class="badge sc-badge">SC</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>5.000</div>
+        <div class='desc'>Script untuk membuat panel JASTEB dasar dengan fitur inti yang diperlukan.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Panel dasar</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Fitur inti</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('SC CREATE PANEL JASTEB', 5000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card sc'>
+      <div class='card-header'>
+        <div class='product-title'>SC CREATE PANEL JASTEB 2 TAMPILAN <span class="badge sc-badge">SC</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>25.000</div>
+        <div class='desc'>Script panel JASTEB dengan 2 variasi tampilan dan bisa konek pusat otomatis.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> 2 Tampilan</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Konek pusat</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('SC CREATE PANEL JASTEB 2 TAMPILAN', 25000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card sc'>
+      <div class='card-header'>
+        <div class='product-title'>SC PUSAT <span class="badge sc-badge">SC</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>10.000</div>
+        <div class='desc'>Script pusat untuk manajemen sistem JASTEB dengan kontrol terpusat.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Manajemen sistem</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kontrol terpusat</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('SC PUSAT', 10000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card sc'>
+      <div class='card-header'>
+        <div class='product-title'>SC ALL PAYMENT <span class="badge sc-badge">SC</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>15.000</div>
+        <div class='desc'>Script dengan dukungan semua metode pembayaran populer dan integrasi mudah.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Multi-payment</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Integrasi mudah</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('SC ALL PAYMENT', 15000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card sc'>
+      <div class='card-header'>
+        <div class='product-title'>SC SUDOMAIN <span class="badge sc-badge">SC</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>25.000</div>
+        <div class='desc'>Script untuk manajemen subdomain pada sistem dengan kontrol penuh.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Manajemen subdomain</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Kontrol penuh</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('SC SUDOMAIN', 25000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+    
+    <div class='card sc'>
+      <div class='card-header'>
+        <div class='product-title'>SC JS WEBP <span class="badge sc-badge">SC</span></div>
+      </div>
+      <div class='card-body'>
+        <div class='price'>80.000</div>
+        <div class='desc'>Script JS WebP untuk integrasi sistem pusat dengan performa tinggi.</div>
+        <div class='features'>
+          <div class='feature'><i class="fas fa-check-circle"></i> Integrasi sistem</div>
+          <div class='feature'><i class="fas fa-check-circle"></i> Performa tinggi</div>
+        </div>
+      </div>
+      <div class='card-footer'>
+        <button onclick="showPopup('SC JS WEBP', 80000)"><i class="fas fa-shopping-cart"></i> Pesan Sekarang</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Popup Order -->
+<div id="popup">
+  <div class="box">
+    <h3><i class="fas fa-shopping-cart"></i> Order Produk</h3>
+    <p id="popupText"></p>
+    
+    <button id="payButton" class="cta-button">
+      <i class="fas fa-qrcode"></i> Bayar dengan QRIS
+    </button>
+    
+    <button class="close-btn" onclick="closePopup()"><i class="fas fa-times"></i> Tutup</button>
+  </div>
+</div>
+
+<!-- Payment Page -->
+<div id="paymentPage">
+  <div class="payment-header">
+    <button class="back-button" onclick="closePaymentPage()">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <h2>Pembayaran QRIS</h2>
+    <div></div> <!-- Empty div for alignment -->
+  </div>
+  
+  <div class="payment-content">
+    <img id="qrisImage" class="qris-image" src="" alt="QR Code">
+    
+    <div class="payment-details">
+      <p><strong>Produk:</strong> <span id="paymentProduct"></span></p>
+      <p><strong>Jumlah:</strong> Rp <span id="paymentAmount"></span></p>
+      <p><strong>ID Transaksi:</strong> <span id="transaksiId"></span></p>
+      <p><strong>Kadaluarsa:</strong> <span id="expiryTime"></span></p>
+    </div>
+    
+    <div class="status-container">
+      <div id="statusMessage" class="status-message status-pending">
+        <i class="fas fa-spinner fa-spin"></i> Menunggu Pembayaran
+      </div>
+      <p>Silahkan selesaikan pembayaran sebelum waktu kadaluarsa</p>
+    </div>
+    
+    <div class="action-buttons">
+      <button id="checkStatusButton" class="action-button check-status">
+        <i class="fas fa-sync-alt"></i> Cek Status Pembayaran
+      </button>
+      <button id="whatsappButton" class="action-button whatsapp-button" style="display: none;">
+        <i class="fab fa-whatsapp"></i> Kirim Bukti & Ambil Produk
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer id="contact">
+  <div class="footer-content">
+    <div class="footer-logo">RAMZZHOST</div>
+    <p>Solusi Terbaik untuk Kebutuhan Hosting dan Server Anda</p>
+    <p>Layanan profesional dengan kualitas premium dan dukungan 24/7</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-telegram"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; 2023 RAMZZHOSTING.ID. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+const wa1 = "6283862592489";
+const wa2 = "6283862592489";
+let currentProduct = {};
+let paymentData = {};
+let checkInterval = null;
+
+function showPopup(judul, harga) {
+  currentProduct = { judul, harga };
+  document.getElementById("popupText").innerText = `${judul} - Rp ${harga.toLocaleString('id-ID')}`;
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+  currentProduct = {};
+  paymentData = {};
+}
+
+function closePaymentPage() {
+  document.getElementById("paymentPage").style.display = "none";
+  if (checkInterval) {
+    clearInterval(checkInterval);
+    checkInterval = null;
+  }
+}
+
+function liveSearch() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".card").forEach(card => {
+    const title = card.querySelector(".product-title").innerText.toLowerCase();
+    card.style.display = title.includes(input) ? "flex" : "none";
+  });
+}
+
+function filterCategory(cat, e) {
+  document.querySelectorAll(".category-btn").forEach(btn => btn.classList.remove("active"));
+  e.target.classList.add("active");
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display = cat === "all" || card.classList.contains(cat) ? "flex" : "none";
+  });
+}
+
+// Payment functions
+document.getElementById('payButton').addEventListener('click', async function() {
+  try {
+    const product = currentProduct;
+    if (!product || !product.judul || !product.harga) return;
+    
+    // Show loading state
+    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+    this.disabled = true;
+    
+    // Call payment API
+    const apiUrl =
+    `https://ramzzhost-apikey-beryl.vercel.app/orderkuota/createpayment?apikey=ramzz&amount=${product.harga}&codeqr=00020101021126670016COM.NOBUBANK.WWW01189360050300000879140214752171968529690303UMI51440014ID.CO.QRIS.WWW0215ID20253778991120303UMI5204541153033605802ID5921RAMZZ%20STORE%20OK22827586005TEGAL61055211162070703A01630472B7`;
+    
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    
+    if (data.status) {
+      paymentData = data.result;
+      
+      // Update payment page
+      document.getElementById("qrisImage").src = paymentData.imageqris.url;
+      document.getElementById("paymentProduct").textContent = product.judul;
+      document.getElementById("paymentAmount").textContent = parseInt(paymentData.jumlah).toLocaleString('id-ID');
+      document.getElementById("transaksiId").textContent = paymentData.idtransaksi;
+      
+      // Format expiry time
+      const expiryDate = new Date(paymentData.expired);
+      const options = { 
+        day: 'numeric', 
+        month: 'long', 
+        year: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit',
+        timeZoneName: 'short'
+      };
+      document.getElementById("expiryTime").textContent = expiryDate.toLocaleString('id-ID', options);
+      
+      // Switch to payment page
+      closePopup();
+      document.getElementById("paymentPage").style.display = "flex";
+      
+      // Clear any existing status messages
+      document.querySelector('.status-container').innerHTML = '';
+    } else {
+      alert('Gagal membuat pembayaran. Silahkan coba lagi.');
+    }
+  } catch (error) {
+    console.error('Payment error:', error);
+    alert('Terjadi kesalahan saat memproses pembayaran.');
+  } finally {
+    this.innerHTML = '<i class="fas fa-qrcode"></i> Bayar dengan QRIS';
+    this.disabled = false;
+  }
+});
+
+function updateStatusUI(status, data) {
+  const statusContainer = document.querySelector('.status-container');
+  const actionButtons = document.querySelector('.action-buttons');
+  
+  // Clear previous content
+  statusContainer.innerHTML = '';
+  actionButtons.innerHTML = '';
+  
+  if (status === 'success') {
+    // Success UI like in the image
+    statusContainer.innerHTML = `
+      <div class="status-message status-success">
+        <i class="fas fa-check-circle"></i> Pembayaran berhasil diterima
+      </div>
+    `;
+    
+    actionButtons.innerHTML = `
+      <button class="action-button whatsapp-button"
+      onclick="window.open('https://wa.me/${wa1}?text=Halo Admin Ramzz,%0A%0ASaya
+      sudah melakukan pembayaran untuk:%0A*${currentProduct.judul}*%0A*ID
+      Transaksi:* ${paymentData.idtransaksi}%0A*Jumlah:* Rp
+      ${parseInt(paymentData.jumlah).toLocaleString('id-ID')}%0A%0ASilahkan
+      kirim produknya. Terima kasih.', '_blank')">
+        <i class="fab fa-whatsapp"></i> Konfirmasi Pembayaran
+      </button>
+      <button class="action-button close-button" onclick="closePaymentPage()">
+        <i class="fas fa-times"></i> Tutup
+      </button>
+    `;
+    
+    // Stop checking status
+    if (checkInterval) {
+      clearInterval(checkInterval);
+      checkInterval = null;
+    }
+  } 
+  else if (status === 'pending') {
+    // Pending UI
+    statusContainer.innerHTML = `
+      <div class="status-message status-pending">
+        <i class="fas fa-spinner fa-spin"></i> Menunggu pembayaran
+      </div>
+    `;
+    
+    actionButtons.innerHTML = `
+      <button id="checkStatusButton" class="action-button check-status">
+        <i class="fas fa-sync-alt"></i> Cek Status Pembayaran
+      </button>
+      <button class="action-button close-button" onclick="closePaymentPage()">
+        <i class="fas fa-times"></i> Batalkan
+      </button>
+    `;
+    
+    // Reattach event listener
+    document.getElementById('checkStatusButton').addEventListener('click', function() {
+      this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memeriksa...';
+      checkPaymentStatus().finally(() => {
+        this.innerHTML = '<i class="fas fa-sync-alt"></i> Cek Status Pembayaran';
+      });
+    });
+  }
+  else {
+    // Error UI
+    statusContainer.innerHTML = `
+      <div class="status-message status-failed">
+        <i class="fas fa-exclamation-circle"></i> Gagal memeriksa status
+      </div>
+      <p>Silahkan coba lagi beberapa saat</p>
+    `;
+    
+    actionButtons.innerHTML = `
+      <button id="checkStatusButton" class="action-button check-status">
+        <i class="fas fa-sync-alt"></i> Coba Lagi
+      </button>
+      <button class="action-button close-button" onclick="closePaymentPage()">
+        <i class="fas fa-times"></i> Tutup
+      </button>
+    `;
+    
+    // Reattach event listener
+    document.getElementById('checkStatusButton').addEventListener('click', function() {
+      this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memeriksa...';
+      checkPaymentStatus().finally(() => {
+        this.innerHTML = '<i class="fas fa-sync-alt"></i> Coba Lagi';
+      });
+    });
+  }
+}
+
+async function checkPaymentStatus() {
+  try {
+    if (!paymentData.idtransaksi) return;
+    
+    const statusUrl = `https://ramzzhost-apikey-beryl.vercel.app/orderkuota/cekstatus?apikey=ramzz&merchant=OK2282758&keyorkut=881309817489535612282758OKCT6883A918E0552DD22511B33E56E3E005`;
+    
+    const response = await fetch(statusUrl);
+    const data = await response.json();
+    
+    if (data.status) {
+      // Payment successful - show UI like in the image
+      updateStatusUI('success', data);
+    } else {
+      // Payment pending
+      updateStatusUI('pending');
+    }
+  } catch (error) {
+    console.error('Status check error:', error);
+    updateStatusUI('error');
+  }
+}
+
+function startCheckingStatus() {
+  // Clear any existing interval
+  if (checkInterval) {
+    clearInterval(checkInterval);
+  }
+  
+  // Check immediately
+  checkPaymentStatus();
+  
+  // Then check every 10 seconds
+  checkInterval = setInterval(checkPaymentStatus, 10000);
+}
+
+// Manual status check button
+document.getElementById('checkStatusButton').addEventListener('click', function() {
+  this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memeriksa...';
+  checkPaymentStatus().finally(() => {
+    this.innerHTML = '<i class="fas fa-sync-alt"></i> Cek Status Pembayaran';
+  });
+});
+</script>
+</body>
+</html>
