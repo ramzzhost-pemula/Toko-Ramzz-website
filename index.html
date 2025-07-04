@@ -1030,9 +1030,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<audio autoplay loop>
-        <source src="audio/1.mp3" type="audio/mp3">
-    </audio>
+<audio id="bg-audio" autoplay loop>
+    <source src="https://files.catbox.moe/chyczo.mp3" type="audio/mpeg" />
+    Browser Anda tidak mendukung audio.
+  </audio>
 <header>
   <div class="header-content">
     <h1>ALL PRODUK RAMZZ HOSTING</h1>
@@ -1949,7 +1950,29 @@ document.getElementById('checkStatusButton').addEventListener('click', function(
   checkPaymentStatus().finally(() => {
     this.innerHTML = '<i class="fas fa-sync-alt"></i> Cek Status Pembayaran';
   });
-});
-</script>
+}); 
+
+const audio = document.getElementById('bg-audio');
+    audio.volume = 1.0;
+
+    function tryPlayAudio() {
+      const playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Audio berhasil diputar
+          })
+          .catch(() => {
+            // Gagal, coba lagi setelah 1 detik
+            setTimeout(tryPlayAudio, 1000);
+          });
+      }
+    }
+
+    window.addEventListener('load', () => {
+      tryPlayAudio();
+    });
+  </script>
 </body>
 </html>
