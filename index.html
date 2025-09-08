@@ -78,6 +78,13 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
         }
 
         /* Header & Navigation */
@@ -257,7 +264,7 @@
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 5rem 1rem;
+            padding: 3rem 1rem;
             max-width: 900px;
             margin: 0 auto;
             position: relative;
@@ -277,7 +284,7 @@
 
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
             background: var(--gradient);
@@ -288,7 +295,7 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
             max-width: 700px;
@@ -401,7 +408,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 2rem;
             font-weight: 800;
             font-family: 'Montserrat', sans-serif;
@@ -778,6 +785,7 @@
         .order-info h4 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .order-info p {
@@ -790,6 +798,11 @@
             border-radius: var(--border-radius-sm);
             font-weight: 500;
             font-size: 0.9rem;
+        }
+
+        .status-pending {
+            background: rgba(248, 150, 30, 0.2);
+            color: var(--warning);
         }
 
         .status-completed {
@@ -817,12 +830,42 @@
             transition: var(--transition);
         }
 
+        .action-approve {
+            background: var(--success);
+            color: white;
+        }
+
+        .action-approve:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .action-reject {
+            background: var(--danger);
+            color: white;
+        }
+
+        .action-reject:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
         .action-download {
             background: var(--info);
             color: white;
         }
 
         .action-download:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .action-view {
+            background: var(--accent);
+            color: white;
+        }
+
+        .action-view:hover {
             opacity: 0.9;
             transform: translateY(-2px);
         }
@@ -860,6 +903,8 @@
             box-shadow: var(--shadow-hover);
             transform: translateY(20px);
             transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .modal.show .modal-content {
@@ -1005,6 +1050,39 @@
             box-shadow: var(--shadow);
         }
 
+        /* Bukti Modal */
+        .proof-modal-content {
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .proof-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .proof-details {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: 1rem;
+        }
+
+        .proof-details p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .proof-details span {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
         /* Login/Register Styles */
         .login-container, .register-container {
             display: none;
@@ -1036,19 +1114,12 @@
             position: relative;
             border: 1px solid rgba(72, 149, 239, 0.3);
             box-shadow: var(--shadow-hover);
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-
-        .login-container.show .login-form, 
-        .register-container.show .register-form {
-            transform: translateY(0);
         }
 
         .login-title, .register-title {
-            text-align: center;
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
+            text-align: center;
             font-weight: 700;
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -1082,12 +1153,8 @@
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            margin-top: 1rem;
+            margin-bottom: 1rem;
             box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
         }
 
         .login-button:hover {
@@ -1098,7 +1165,6 @@
 
         .switch-form-text {
             text-align: center;
-            margin-top: 1.5rem;
             color: var(--text-secondary);
         }
 
@@ -1112,144 +1178,23 @@
             text-decoration: underline;
         }
 
-        /* Notification Styles */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem 1.5rem;
-            border-radius: var(--border-radius-sm);
-            color: white;
-            font-weight: 500;
-            z-index: 3000;
-            transform: translateX(100%);
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            box-shadow: var(--shadow-hover);
-        }
-
-        .notification.show {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .notification.success {
-            background: var(--success);
-        }
-
-        .notification.error {
-            background: var(--danger);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-secondary);
-            padding: 3rem 1rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        footer .logo {
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        footer p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links a {
+        /* File Upload Styles */
+        .file-upload-label {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: var(--card-bg);
-            color: var(--text-primary);
-            border-radius: 50%;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-
-        .social-links a:hover {
-            background: var(--gradient);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .copyright {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            text-align: center;
-            padding: 4rem 1rem;
-            background: var(--bg-secondary);
-            margin-top: 4rem;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .contact p {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-        }
-
-        /* File Upload Styles */
-        .file-upload {
-            margin: 1rem 0;
-        }
-
-        .file-upload-label {
-            display: block;
+            gap: 0.5rem;
             padding: 1rem;
             background: var(--bg-tertiary);
             border: 2px dashed var(--border-color);
             border-radius: var(--border-radius-sm);
-            text-align: center;
             cursor: pointer;
             transition: var(--transition);
+            color: var(--text-secondary);
         }
 
         .file-upload-label:hover {
             border-color: var(--accent);
-            background: rgba(72, 149, 239, 0.1);
-        }
-
-        .file-upload-label i {
-            font-size: 2rem;
             color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .file-upload-label span {
-            color: var(--text-secondary);
         }
 
         .file-upload-input {
@@ -1259,75 +1204,52 @@
         .uploaded-file {
             display: flex;
             align-items: center;
-            background: var(--bg-tertiary);
+            gap: 0.5rem;
             padding: 0.8rem;
+            background: var(--bg-tertiary);
             border-radius: var(--border-radius-sm);
             margin-top: 1rem;
-        }
-
-        .uploaded-file i {
-            color: var(--success);
-            margin-right: 0.5rem;
         }
 
         .uploaded-file-name {
             flex: 1;
             color: var(--text-primary);
-            font-size: 0.9rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
         }
 
         .remove-file {
             color: var(--danger);
             cursor: pointer;
-            padding: 0.3rem;
         }
 
-        /* User Management Styles */
-        .user-table {
+        .upload-progress {
+            display: none;
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        .user-table th, .user-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .user-table th {
+            height: 10px;
             background: var(--bg-tertiary);
-            font-weight: 600;
+            border-radius: 5px;
+            overflow: hidden;
         }
 
-        .user-table tr:hover {
-            background: var(--bg-tertiary);
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.3s ease;
         }
 
-        .user-role {
-            padding: 0.3rem 0.8rem;
-            border-radius: var(--border-radius-sm);
-            font-size: 0.8rem;
-            font-weight: 500;
+        .progress-text {
+            text-align: center;
+            margin-top: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
-        .role-admin {
-            background: rgba(247, 37, 133, 0.2);
-            color: var(--danger);
-        }
-
-        .role-user {
-            background: rgba(76, 201, 240, 0.2);
-            color: var(--success);
-        }
-
-        /* File List Styles */
         .file-list {
-            list-style: none;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .file-item {
@@ -1346,6 +1268,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex: 1;
         }
 
         .file-icon {
@@ -1361,40 +1284,148 @@
             gap: 0.5rem;
         }
 
-        /* Upload Progress */
-        .upload-progress {
-            margin-top: 1rem;
-            display: none;
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .user-table th, .user-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .user-table th {
             background: var(--bg-tertiary);
-            padding: 1rem;
+            font-weight: 600;
+        }
+
+        .user-role {
+            padding: 0.3rem 0.8rem;
             border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
-        .progress-bar {
-            height: 10px;
-            background: var(--bg-secondary);
-            border-radius: var(--border-radius-sm);
-            overflow: hidden;
-            margin-bottom: 0.5rem;
+        .role-admin {
+            background: rgba(67, 97, 238, 0.2);
+            color: var(--primary);
         }
 
-        .progress-fill {
-            height: 100%;
-            background: var(--gradient);
-            width: 0%;
-            transition: width 0.3s ease;
+        .role-user {
+            background: rgba(76, 201, 240, 0.2);
+            color: var(--success);
         }
 
-        .progress-text {
+        /* Contact Section */
+        .contact {
             text-align: center;
+            padding: 4rem 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
             color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 3rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer .logo {
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: var(--text-muted);
             font-size: 0.9rem;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            color: white;
+            font-weight: 500;
+            z-index: 3000;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: var(--shadow);
+            max-width: 350px;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .notification.success {
+            background: var(--success);
+        }
+
+        .notification.error {
+            background: var(--danger);
         }
 
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             
             .feature-card {
@@ -1427,7 +1458,7 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
@@ -1440,6 +1471,7 @@
             
             .feature-card {
                 width: calc(50% - 1rem);
+                max-width: none;
             }
             
             .product-grid {
@@ -1475,15 +1507,21 @@
                 width: 100%;
                 justify-content: flex-end;
             }
+
+            .dashboard-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
         }
 
         @media (max-width: 576px) {
             .hero {
-                padding: 3rem 1rem;
+                padding: 2rem 1rem;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .cta-button {
@@ -1497,13 +1535,19 @@
             }
             
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
-            .dashboard-header {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
+            .dashboard-title {
+                font-size: 1.8rem;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+            
+            .customer-form {
+                margin: 1rem 0;
             }
         }
     </style>
@@ -1614,16 +1658,16 @@
             
             <!-- Menu Kategori -->
             <div class="categories">
-                <button class="category-btn active" onclick="filterCategory('all', event)">
+                <button class="category-btn active" data-category="all">
                     <i class="fas fa-list"></i> SEMUA
                 </button>
-                <button class="category-btn" onclick="filterCategory('domain', event)">
+                <button class="category-btn" data-category="domain">
                     <i class="fas fa-globe"></i> DOMAIN
                 </button>
-                <button class="category-btn" onclick="filterCategory('jasteb', event)">
+                <button class="category-btn" data-category="jasteb">
                     <i class="fas fa-user-shield"></i> JASTEB
                 </button>
-                <button class="category-btn" onclick="filterCategory('sc', event)">
+                <button class="category-btn" data-category="sc">
                     <i class="fas fa-code"></i> ALL SC
                 </button>
             </div>
@@ -1676,6 +1720,25 @@
             </div>
         </div>
 
+        <!-- Modal Bukti Pembayaran -->
+        <div class="modal" id="proof-modal">
+            <div class="modal-content proof-modal-content">
+                <span class="close-modal">&times;</span>
+                <h3 class="modal-title">Bukti Pembayaran</h3>
+                
+                <img id="proof-modal-image" class="proof-image" alt="Bukti Pembayaran">
+                
+                <div class="proof-details" id="proof-modal-details">
+                    <!-- Detail pesanan akan diisi oleh JavaScript -->
+                </div>
+                
+                <div class="modal-buttons">
+                    <button class="modal-button primary-button" id="approve-payment">Setujui Pembayaran</button>
+                    <button class="modal-button secondary-button" id="reject-payment">Tolak Pembayaran</button>
+                </div>
+            </div>
+        </div>
+
         <section class="contact" id="contact">
             <h2>Butuh Bantuan?</h2>
             <p>Tim kami siap membantu Anda 24 jam melalui WhatsApp. Jangan ragu untuk menghubungi kami untuk pertanyaan atau pemesanan.</p>
@@ -1703,6 +1766,15 @@
                 <h3 id="dashboard-content-title">Pesanan Saya</h3>
                 <div class="order-list" id="order-list">
                     <!-- Orders will be generated by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Section untuk admin melihat pesanan yang perlu diverifikasi -->
+            <div class="dashboard-card" id="admin-orders-section" style="display: none;">
+                <h3>Verifikasi Pembayaran</h3>
+                <p>Verifikasi pembayaran pelanggan dengan mengecek bukti transfer</p>
+                <div class="order-list" id="admin-order-list">
+                    <!-- Admin orders will be generated by JavaScript -->
                 </div>
             </div>
             
@@ -1908,7 +1980,7 @@
             &copy; 2023 DigitalShop. All rights reserved.
         </div>
     </footer>
-    
+
     <script>
         // Data produk
         let products = JSON.parse(localStorage.getItem('products')) || [
@@ -1978,11 +2050,13 @@
         let selectedProductId = null;
         let selectedFile = null;
         let paymentProofFile = null;
+        let currentProofOrder = null;
 
         // Elemen DOM
         const mainContent = document.querySelector('main');
         const productGrid = document.getElementById('product-grid');
         const modal = document.getElementById('payment-modal');
+        const proofModal = document.getElementById('proof-modal');
         const loginContainer = document.getElementById('login-container');
         const registerContainer = document.getElementById('register-container');
         const productModal = document.getElementById('product-modal');
@@ -2002,6 +2076,8 @@
         const dashboardStats = document.getElementById('dashboard-stats');
         const dashboardContentTitle = document.getElementById('dashboard-content-title');
         const orderList = document.getElementById('order-list');
+        const adminOrdersSection = document.getElementById('admin-orders-section');
+        const adminOrderList = document.getElementById('admin-order-list');
         const fileManagementSection = document.getElementById('file-management-section');
         const userManagementSection = document.getElementById('user-management-section');
         const productManagementSection = document.getElementById('product-management-section');
@@ -2090,6 +2166,9 @@
             
             // Setup event listeners untuk tombol order
             setupOrderButtons();
+            
+            // Setup event listeners untuk kategori
+            setupCategoryButtons();
         }
 
         // Fungsi untuk setup event listeners
@@ -2160,6 +2239,25 @@
             // Tombol tutup modal download
             document.getElementById('close-download').addEventListener('click', function() {
                 hideModal(downloadModal);
+            });
+            
+            // Tombol tutup modal bukti
+            document.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (proofModal.style.display === 'flex') {
+                        hideModal(proofModal);
+                    }
+                });
+            });
+            
+            // Tombol setujui pembayaran
+            document.getElementById('approve-payment').addEventListener('click', function() {
+                approvePayment();
+            });
+            
+            // Tombol tolak pembayaran
+            document.getElementById('reject-payment').addEventListener('click', function() {
+                rejectPayment();
             });
             
             // Navigasi antara modal login dan register
@@ -2287,6 +2385,10 @@
                     closePaymentModal();
                 }
                 
+                if (e.target === proofModal) {
+                    hideModal(proofModal);
+                }
+                
                 if (e.target === productModal) {
                     hideModal(productModal);
                     resetProductForm();
@@ -2308,6 +2410,33 @@
                 item.addEventListener('click', function() {
                     navMenu.classList.remove('active');
                     hamburger.classList.remove('active');
+                });
+            });
+        }
+
+        // Fungsi untuk setup tombol kategori
+        function setupCategoryButtons() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update tampilan tombol kategori
+                    document.querySelectorAll('.category-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Filter produk
+                    const productCards = document.querySelectorAll('.product-card');
+                    productCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
                 });
             });
         }
@@ -2451,6 +2580,7 @@
             dashboardContentTitle.textContent = currentUser.isAdmin ? 'Semua Pesanan' : 'Pesanan Saya';
             
             // Tampilkan section admin jika user adalah admin
+            adminOrdersSection.style.display = currentUser.isAdmin ? 'block' : 'none';
             fileManagementSection.style.display = currentUser.isAdmin ? 'block' : 'none';
             userManagementSection.style.display = currentUser.isAdmin ? 'block' : 'none';
             productManagementSection.style.display = currentUser.isAdmin ? 'block' : 'none';
@@ -2463,6 +2593,7 @@
             
             // Render daftar pesanan untuk admin
             if (currentUser.isAdmin) {
+                renderAdminOrders();
                 renderUserTable();
                 renderProductTable();
                 renderProductSelect();
@@ -2483,6 +2614,7 @@
             if (currentUser.isAdmin) {
                 // Statistik untuk admin
                 const totalOrders = orders.length;
+                const pendingOrders = orders.filter(o => o.status === 'pending').length;
                 const completedOrders = orders.filter(o => o.status === 'completed').length;
                 const totalRevenue = orders.filter(o => o.status === 'completed')
                     .reduce((sum, order) => sum + order.price, 0);
@@ -2492,6 +2624,11 @@
                         <i class="fas fa-shopping-cart"></i>
                         <h3>Total Pesanan</h3>
                         <div class="stat-value">${totalOrders}</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Menunggu Verifikasi</h3>
+                        <div class="stat-value">${pendingOrders}</div>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-check-circle"></i>
@@ -2508,6 +2645,7 @@
                 // Statistik untuk member
                 const userOrders = orders.filter(o => o.userId === currentUser.id);
                 const totalOrders = userOrders.length;
+                const pendingOrders = userOrders.filter(o => o.status === 'pending').length;
                 const completedOrders = userOrders.filter(o => o.status === 'completed').length;
                 
                 statsHtml = `
@@ -2515,6 +2653,11 @@
                         <i class="fas fa-shopping-cart"></i>
                         <h3>Total Pesanan</h3>
                         <div class="stat-value">${totalOrders}</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Menunggu Verifikasi</h3>
+                        <div class="stat-value">${pendingOrders}</div>
                     </div>
                     <div class="stat-card">
                         <i class="fas fa-check-circle"></i>
@@ -2558,6 +2701,9 @@
                 let statusText = '';
                 
                 switch(order.status) {
+                    case 'pending':
+                        statusText = 'Menunggu Verifikasi';
+                        break;
                     case 'completed':
                         statusText = 'Selesai';
                         break;
@@ -2580,7 +2726,6 @@
                             <h4>${order.productName}</h4>
                             <p>Rp ${order.price.toLocaleString('id-ID')} • ${orderDate}</p>
                             <p>Status: <span class="${statusClass}">${statusText}</span></p>
-                            ${order.proof ? `<p>Bukti: <a href="${order.proof}" target="_blank">Lihat Bukti</a></p>` : ''}
                         </div>
                         <div class="order-actions">
                             ${downloadButton}
@@ -2593,6 +2738,56 @@
             
             // Setup event listeners untuk tombol aksi
             setupOrderActionButtons();
+        }
+
+        // Fungsi untuk merender daftar pesanan admin
+        function renderAdminOrders() {
+            // Ambil hanya pesanan yang menunggu verifikasi
+            const pendingOrders = orders.filter(o => o.status === 'pending');
+            
+            if (pendingOrders.length === 0) {
+                adminOrderList.innerHTML = `
+                    <div class="no-orders" style="text-align: center; padding: 2rem;">
+                        <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: 1rem;"></i>
+                        <p style="color: var(--text-secondary);">Tidak ada pesanan yang menunggu verifikasi</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Urutkan pesanan berdasarkan tanggal (yang terbaru pertama)
+            pendingOrders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            
+            let ordersHtml = '';
+            pendingOrders.forEach(order => {
+                const orderDate = new Date(order.createdAt).toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                ordersHtml += `
+                    <li class="order-item">
+                        <div class="order-info">
+                            <h4>${order.productName}</h4>
+                            <p>Rp ${order.price.toLocaleString('id-ID')} • ${orderDate}</p>
+                            <p>Customer: ${order.customerName} (${order.customerWA})</p>
+                        </div>
+                        <div class="order-actions">
+                            <button class="order-action action-view" data-order-id="${order.id}">
+                                <i class="fas fa-eye"></i> Lihat Bukti
+                            </button>
+                        </div>
+                    </li>
+                `;
+            });
+            
+            adminOrderList.innerHTML = ordersHtml;
+            
+            // Setup event listeners untuk tombol aksi
+            setupAdminOrderActionButtons();
         }
 
         // Fungsi untuk merender select produk
@@ -2767,6 +2962,18 @@
             });
         }
 
+        // Fungsi untuk setup tombol aksi pesanan admin
+        function setupAdminOrderActionButtons() {
+            const viewButtons = document.querySelectorAll('.action-view[data-order-id]');
+            
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const orderId = parseInt(this.getAttribute('data-order-id'));
+                    viewOrderProof(orderId);
+                });
+            });
+        }
+
         // Fungsi untuk setup tombol aksi produk
         function setupProductActionButtons() {
             const editButtons = document.querySelectorAll('.action-view[data-product-id]');
@@ -2807,6 +3014,80 @@
                     deleteProductFile(productId, fileIndex);
                 });
             });
+        }
+
+        // Fungsi untuk melihat bukti pembayaran
+        function viewOrderProof(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            
+            if (order && order.proof) {
+                currentProofOrder = order;
+                
+                // Tampilkan gambar bukti pembayaran
+                document.getElementById('proof-modal-image').src = order.proof;
+                
+                // Isi detail pesanan
+                const orderDate = new Date(order.createdAt).toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                document.getElementById('proof-modal-details').innerHTML = `
+                    <p><strong>Produk:</strong> <span>${order.productName}</span></p>
+                    <p><strong>Harga:</strong> <span>Rp ${order.price.toLocaleString('id-ID')}</span></p>
+                    <p><strong>Tanggal:</strong> <span>${orderDate}</span></p>
+                    <p><strong>Customer:</strong> <span>${order.customerName}</span></p>
+                    <p><strong>WhatsApp:</strong> <span>${order.customerWA}</span></p>
+                `;
+                
+                // Tampilkan modal
+                showModal(proofModal);
+            } else {
+                showNotification('Bukti pembayaran tidak ditemukan', 'error');
+            }
+        }
+
+        // Fungsi untuk menyetujui pembayaran
+        function approvePayment() {
+            if (currentProofOrder) {
+                // Update status pesanan
+                const orderIndex = orders.findIndex(o => o.id === currentProofOrder.id);
+                if (orderIndex !== -1) {
+                    orders[orderIndex].status = 'completed';
+                    localStorage.setItem('orders', JSON.stringify(orders));
+                    
+                    // Perbarui tampilan
+                    renderOrders();
+                    renderAdminOrders();
+                    renderDashboardStats();
+                    
+                    showNotification('Pembayaran berhasil disetujui!', 'success');
+                    hideModal(proofModal);
+                }
+            }
+        }
+
+        // Fungsi untuk menolak pembayaran
+        function rejectPayment() {
+            if (currentProofOrder) {
+                // Update status pesanan
+                const orderIndex = orders.findIndex(o => o.id === currentProofOrder.id);
+                if (orderIndex !== -1) {
+                    orders[orderIndex].status = 'cancelled';
+                    localStorage.setItem('orders', JSON.stringify(orders));
+                    
+                    // Perbarui tampilan
+                    renderOrders();
+                    renderAdminOrders();
+                    renderDashboardStats();
+                    
+                    showNotification('Pembayaran ditolak!', 'success');
+                    hideModal(proofModal);
+                }
+            }
         }
 
         // Fungsi untuk edit produk
@@ -2975,14 +3256,21 @@
                 
                 // Buat link download sementara
                 const link = document.createElement('a');
-                link.href = 'https://toko-ramzz-website.vercel.app/audio/${download-file-list}'; // Link kosong karena kita tidak memiliki file sebenarnya
+                
+                // Untuk demo, kita akan membuat file dummy
+                // Dalam implementasi nyata, ini akan mengarah ke file yang sebenarnya
+                const blob = new Blob(['Ini adalah konten file contoh untuk produk ' + productId], 
+                                    { type: 'application/zip' });
+                
+                link.href = URL.createObjectURL(blob);
                 link.download = file.name;
                 link.click();
                 
-                // Dalam implementasi nyata, ini akan mengarah ke file yang sebenarnya
+                // Bersihkan URL objek
                 setTimeout(() => {
-                    showNotification('Download dimulai', 'success');
-                }, 1000);
+                    URL.revokeObjectURL(link.href);
+                    showNotification('Download selesai', 'success');
+                }, 100);
             } else {
                 showNotification('File tidak ditemukan', 'error');
             }
@@ -3085,28 +3373,6 @@
             userInfo.style.display = 'none';
         }
 
-        // Fungsi filter kategori
-        window.filterCategory = function(category, event) {
-            // Update tampilan tombol kategori
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            if (event && event.target) {
-                event.target.classList.add('active');
-            }
-            
-            // Filter produk
-            const productCards = document.querySelectorAll('.product-card');
-            productCards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        };
-
         // Fungsi untuk mencari produk
         function searchProducts() {
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
@@ -3181,7 +3447,7 @@
                     customerName: name,
                     customerWA: waNumber,
                     note: "",
-                    status: 'completed',
+                    status: 'pending', // Status awal adalah pending menunggu verifikasi admin
                     proof: event.target.result, // Simpan sebagai data URL
                     createdAt: new Date().toISOString()
                 };
@@ -3193,7 +3459,7 @@
                 const message = `Halo, saya *${name}* sudah melakukan pembayaran untuk produk:\n\n` +
                                 `*Produk:* ${currentOrder.product}\n` +
                                 `*Harga:* ${formatRupiah(currentOrder.price)}\n\n` +
-                                `Silakan konfirmasi pembayaran saya. Terima kasih.`;
+                                `Silakan verifikasi pembayaran saya. Terima kasih.`;
                 
                 const encodedMessage = encodeURIComponent(message);
                 const whatsappUrl = `https://wa.me/6283862592489?text=${encodedMessage}`;
@@ -3204,7 +3470,7 @@
                 // Tutup modal
                 closePaymentModal();
                 
-                showNotification('Pembayaran berhasil dikonfirmasi! File dapat diunduh di dashboard.', 'success');
+                showNotification('Pembayaran berhasil dikonfirmasi! Menunggu verifikasi admin.', 'success');
             };
             proofReader.readAsDataURL(paymentProofFile);
         }
@@ -3272,6 +3538,3 @@
     </script>
 </body>
 </html>
-
-
-
