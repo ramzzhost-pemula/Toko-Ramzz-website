@@ -1992,7 +1992,13 @@
                 qris: "https://files.catbox.moe/jibvsz.jpg",
                 features: ["Akses via Telegram", "Proses cepat dan aman", "Support 24 jam", "Garansi 30 hari"],
                 highlight: "",
-                files: []
+                files: [
+                    {
+                        name: "Murbug-Telegram-Premium.zip",
+                        size: 18500, // 18.5 KB
+                        type: "application/zip"
+                    }
+                ]
             },
             {
                 id: 2,
@@ -2002,7 +2008,13 @@
                 qris: "https://files.catbox.moe/jibvsz.jpg",
                 features: ["Screen Capture berkualitas", "Tanpa watermark", "Resolusi tinggi", "Proses instan"],
                 highlight: "POPULAR",
-                files: []
+                files: [
+                    {
+                        name: "SC-REXUS-Premium.zip",
+                        size: 24500, // 24.5 KB
+                        type: "application/zip"
+                    }
+                ]
             },
             {
                 id: 3,
@@ -2012,7 +2024,13 @@
                 qris: "https://files.catbox.moe/jibvsz.jpg",
                 features: ["Akses panel reseller", "Harga khusus", "Fitur lengkap", "Dashboard modern"],
                 highlight: "",
-                files: []
+                files: [
+                    {
+                        name: "Reseller-Panel-Access.zip",
+                        size: 15800, // 15.8 KB
+                        type: "application/zip"
+                    }
+                ]
             }
         ];
 
@@ -3254,23 +3272,48 @@
                 // Simulasi download
                 showNotification(`Mempersiapkan download ${file.name}`, 'success');
                 
-                // Buat link download sementara
-                const link = document.createElement('a');
+                // Buat file zip dengan konten yang sesuai
+                const zip = new JSZip();
                 
-                // Untuk demo, kita akan membuat file dummy
-                // Dalam implementasi nyata, ini akan mengarah ke file yang sebenarnya
-                const blob = new Blob(['Ini adalah konten file contoh untuk produk ' + productId], 
-                                    { type: 'application/zip' });
+                // Tambahkan konten ke file zip berdasarkan jenis produk
+                if (productId == 1) { // MURBUG VIA TELE
+                    zip.file("README.txt", "Ini adalah file MURBUG VIA TELE yang lengkap.\n\nSilakan ekstrak file ini untuk mendapatkan akses penuh ke produk.");
+                    zip.file("setup.exe", "Mock setup file content");
+                    zip.file("user-guide.pdf", "Mock user guide content");
+                } else if (productId == 2) { // SC REXUS
+                    zip.file("README.txt", "Ini adalah file SC REXUS yang lengkap.\n\nSilakan ekstrak file ini untuk mendapatkan akses penuh ke produk.");
+                    zip.file("source-code/main.js", "// Source code utama untuk SC REXUS");
+                    zip.file("documentation.pdf", "Mock documentation content");
+                } else if (productId == 3) { // RESELLER PANEL
+                    zip.file("README.txt", "Ini adalah file RESELLER PANEL yang lengkap.\n\nSilakan ekstrak file ini untuk mendapatkan akses penuh ke produk.");
+                    zip.file("panel-access/key.txt", "API_KEY=1234567890abcdef");
+                    zip.file("instructions.pdf", "Mock instructions content");
+                } else {
+                    // Default content untuk produk lainnya
+                    zip.file("README.txt", `Ini adalah file untuk produk ID ${productId}.\n\nSilakan ekstrak file ini untuk mendapatkan akses penuh ke produk.`);
+                    zip.file("product-file.txt", "Konten produk akan tersedia setelah ekstraksi.");
+                }
                 
-                link.href = URL.createObjectURL(blob);
-                link.download = file.name;
-                link.click();
-                
-                // Bersihkan URL objek
-                setTimeout(() => {
-                    URL.revokeObjectURL(link.href);
-                    showNotification('Download selesai', 'success');
-                }, 100);
+                // Generate file zip
+                zip.generateAsync({
+                    type: "blob",
+                    compression: "DEFLATE",
+                    compressionOptions: {
+                        level: 6
+                    }
+                }).then(function(content) {
+                    // Buat link download
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(content);
+                    link.download = file.name;
+                    link.click();
+                    
+                    // Bersihkan URL objek
+                    setTimeout(() => {
+                        URL.revokeObjectURL(link.href);
+                        showNotification('Download selesai! File siap digunakan.', 'success');
+                    }, 100);
+                });
             } else {
                 showNotification('File tidak ditemukan', 'error');
             }
@@ -3535,6 +3578,9 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // Load library JSZip untuk membuat file zip
+        document.head.appendChild(document.createElement('script')).src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
     </script>
 </body>
 </html>
