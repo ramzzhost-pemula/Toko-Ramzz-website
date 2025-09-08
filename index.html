@@ -3164,7 +3164,7 @@
             
             // Simulasi proses upload
             let progress = 0;
-            const interval = setInterval(() => {
+            const interval = setInterval(() {
                 progress += 5;
                 progressFill.style.width = `${progress}%`;
                 progressText.textContent = `${progress}%`;
@@ -3183,7 +3183,8 @@
                     productFiles[selectedProductId].push({
                         name: fileName,
                         size: fileSize,
-                        uploadedAt: new Date().toISOString()
+                        uploadedAt: new Date().toISOString(),
+                        url: `https://toko-ramzz-website.vercel.app/files/${fileName}`
                     });
                     
                     localStorage.setItem('productFiles', JSON.stringify(productFiles));
@@ -3242,6 +3243,12 @@
                             <button class="order-action action-download" data-product-id="${productId}" data-file-index="${index}">
                                 Download
                             </button>
+                            <a href="${file.url || `https://toko-ramzz-website.vercel.app/files/${file.name}`}" 
+                               class="order-action action-view" 
+                               target="_blank" 
+                               style="text-decoration: none;">
+                                Lihat Detail
+                            </a>
                         </div>
                     </div>
                 `;
@@ -3272,48 +3279,24 @@
                 // Simulasi download
                 showNotification(`Mempersiapkan download ${file.name}`, 'success');
                 
-                // Buat file zip dengan konten yang sesuai
-                const zip = new JSZip();
+                // Gunakan URL eksternal untuk download
+                const fileUrl = file.url || `https://toko-ramzz-website.vercel.app/files/${file.name}`;
                 
-                // Tambahkan konten ke file zip berdasarkan jenis produk
-                if (productId == 1) { // MURBUG VIA TELE
-                    zip.file("README.txt", "Ini adalah file MURBUG VIA TELE yang lengkap.\n\nSilakan ekstrak file ini untuk mendapatkan akses penuh ke produk.");
-                    zip.file("setup.exe", "Mock setup file content");
-                    zip.file("user-guide.pdf", "Mock user guide content");
-                } else if (productId == 2) { // SC REXUS
-                    zip.file("README.txt", "Ini adalah file SC REXUS yang lengkap.\n\nSilakan ekstrak file ini untuk mendapatkan akses penuh ke produk.");
-                    zip.file("source-code/main.js", "// Source code utama untuk SC REXUS");
-                    zip.file("documentation.pdf", "Mock documentation content");
-                } else if (productId == 3) { // RESELLER PANEL
-                    zip.file("README.txt", "Ini adalah file RESELLER PANEL yang lengkap.\n\nSilakan ekstrak file ini untuk mendapatkan akses penuh ke produk.");
-                    zip.file("panel-access/key.txt", "API_KEY=1234567890abcdef");
-                    zip.file("instructions.pdf", "Mock instructions content");
-                } else {
-                    // Default content untuk produk lainnya
-                    zip.file("README.txt", `Ini adalah file untuk produk ID ${productId}.\n\nSilakan ekstrak file ini untuk mendapatkan akses penuh ke produk.`);
-                    zip.file("product-file.txt", "Konten produk akan tersedia setelah ekstraksi.");
-                }
+                // Buat link download
+                const link = document.createElement('a');
+                link.href = fileUrl;
+                link.download = file.name;
+                link.target = '_blank'; // Buka di tab baru
                 
-                // Generate file zip
-                zip.generateAsync({
-                    type: "blob",
-                    compression: "DEFLATE",
-                    compressionOptions: {
-                        level: 6
-                    }
-                }).then(function(content) {
-                    // Buat link download
-                    const link = document.createElement('a');
-                    link.href = URL.createObjectURL(content);
-                    link.download = file.name;
-                    link.click();
-                    
-                    // Bersihkan URL objek
-                    setTimeout(() => {
-                        URL.revokeObjectURL(link.href);
-                        showNotification('Download selesai! File siap digunakan.', 'success');
-                    }, 100);
-                });
+                // Trigger download
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Tampilkan notifikasi
+                setTimeout(() => {
+                    showNotification('Download dimulai! Jika tidak otomatis, cek tab baru browser Anda.', 'success');
+                }, 500);
             } else {
                 showNotification('File tidak ditemukan', 'error');
             }
@@ -3578,9 +3561,6 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
-
-        // Load library JSZip untuk membuat file zip
-        document.head.appendChild(document.createElement('script')).src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
     </script>
 </body>
 </html>
