@@ -786,6 +786,9 @@
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .order-info p {
@@ -828,6 +831,9 @@
             border: none;
             font-size: 0.9rem;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         .action-approve {
@@ -997,6 +1003,10 @@
             cursor: pointer;
             transition: var(--transition);
             border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .primary-button {
@@ -1155,6 +1165,10 @@
             transition: var(--transition);
             margin-bottom: 1rem;
             box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .login-button:hover {
@@ -1269,19 +1283,25 @@
             align-items: center;
             gap: 0.5rem;
             flex: 1;
+            overflow: hidden;
         }
 
         .file-icon {
             color: var(--accent);
+            flex-shrink: 0;
         }
 
         .file-name {
             color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .file-actions {
             display: flex;
             gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .user-table {
@@ -1714,8 +1734,12 @@
                 </div>
                 
                 <div class="modal-buttons">
-                    <button class="modal-button primary-button" id="confirm-payment">Konfirmasi Pembayaran</button>
-                    <button class="modal-button secondary-button" id="cancel-payment">Batalkan</button>
+                    <button class="modal-button primary-button" id="confirm-payment">
+                        <i class="fas fa-check-circle"></i> Konfirmasi Pembayaran
+                    </button>
+                    <button class="modal-button secondary-button" id="cancel-payment">
+                        <i class="fas fa-times"></i> Batalkan
+                    </button>
                 </div>
             </div>
         </div>
@@ -1733,8 +1757,12 @@
                 </div>
                 
                 <div class="modal-buttons">
-                    <button class="modal-button primary-button" id="approve-payment">Setujui Pembayaran</button>
-                    <button class="modal-button secondary-button" id="reject-payment">Tolak Pembayaran</button>
+                    <button class="modal-button primary-button" id="approve-payment">
+                        <i class="fas fa-check"></i> Setujui Pembayaran
+                    </button>
+                    <button class="modal-button secondary-button" id="reject-payment">
+                        <i class="fas fa-times"></i> Tolak Pembayaran
+                    </button>
                 </div>
             </div>
         </div>
@@ -1783,7 +1811,7 @@
                 <h3>Manajemen File Produk</h3>
                 <div class="customer-form">
                     <div class="form-group">
-                        <label for="file-product">Pilih Produk</label>
+                        <label for="file-product">Pilih Produк</label>
                         <select id="file-product">
                             <option value="">-- Pilih Produk --</option>
                         </select>
@@ -2038,18 +2066,18 @@
         let users = JSON.parse(localStorage.getItem('users')) || [
             {
                 id: 1,
-                name: "Admin",
-                username: "admin",
+                name: "RamzzNotDev",
+                username: "ramzz",
                 email: "admin@digitalshop.com",
-                password: "admin123",
+                password: "ramzz1",
                 isAdmin: true
             },
             {
                 id: 2,
-                name: "User Demo",
-                username: "user",
+                name: "RamzzNotDev",
+                username: "ramzz",
                 email: "user@demo.com",
-                password: "user123",
+                password: "ramzz12",
                 isAdmin: false
             }
         ];
@@ -2160,8 +2188,10 @@
                 // Cek apakah user sudah login untuk mengaktifkan tombol order
                 const isLoggedIn = currentUser !== null;
                 const buttonHtml = isLoggedIn ? 
-                    `<button class="order-button" data-id="${product.id}" data-product="${product.name}" data-price="${product.price}" data-qris="${product.qris}">Beli Sekarang</button>` :
-                    `<button class="order-button" disabled>Login untuk Membeli</button>`;
+                    `<button class="order-button" data-id="${product.id}" data-product="${product.name}" data-price="${product.price}" data-qris="${product.qris}">
+                        <i class="fas fa-shopping-cart"></i> Beli Sekarang
+                    </button>` :
+                    `<button class="order-button" disabled><i class="fas fa-lock"></i> Login untuk Membeli</button>`;
                 
                 productCard.innerHTML = `
                     ${highlightHtml}
@@ -2741,7 +2771,7 @@
                 ordersHtml += `
                     <li class="order-item">
                         <div class="order-info">
-                            <h4>${order.productName}</h4>
+                            <h4><i class="fas fa-box"></i> ${order.productName}</h4>
                             <p>Rp ${order.price.toLocaleString('id-ID')} • ${orderDate}</p>
                             <p>Status: <span class="${statusClass}">${statusText}</span></p>
                         </div>
@@ -2789,7 +2819,7 @@
                 ordersHtml += `
                     <li class="order-item">
                         <div class="order-info">
-                            <h4>${order.productName}</h4>
+                            <h4><i class="fas fa-box"></i> ${order.productName}</h4>
                             <p>Rp ${order.price.toLocaleString('id-ID')} • ${orderDate}</p>
                             <p>Customer: ${order.customerName} (${order.customerWA})</p>
                         </div>
@@ -2853,10 +2883,10 @@
                         </div>
                         <div class="file-actions">
                             <button class="order-action action-view" data-product-id="${selectedProductId}" data-file-index="${index}">
-                                Download
+                                <i class="fas fa-download"></i> Download
                             </button>
                             <button class="order-action action-reject" data-product-id="${selectedProductId}" data-file-index="${index}">
-                                Hapus
+                                <i class="fas fa-trash"></i> Hapus
                             </button>
                         </div>
                     </li>
@@ -2949,8 +2979,12 @@
                         <td>Rp ${product.price.toLocaleString('id-ID')}</td>
                         <td>${product.category}</td>
                         <td>
-                            <button class="order-action action-view" data-product-id="${product.id}">Edit</button>
-                            <button class="order-action action-reject" data-product-id="${product.id}">Hapus</button>
+                            <button class="order-action action-view" data-product-id="${product.id}">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="order-action action-reject" data-product-id="${product.id}">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
                         </td>
                     </tr>
                 `;
@@ -3164,7 +3198,7 @@
             
             // Simulasi proses upload
             let progress = 0;
-            const interval = setInterval(() {
+            const interval = setInterval(function() {
                 progress += 5;
                 progressFill.style.width = `${progress}%`;
                 progressText.textContent = `${progress}%`;
@@ -3241,13 +3275,13 @@
                         </div>
                         <div class="file-actions">
                             <button class="order-action action-download" data-product-id="${productId}" data-file-index="${index}">
-                                Download
+                                <i class="fas fa-download"></i> Download
                             </button>
                             <a href="${file.url || `https://toko-ramzz-website.vercel.app/files/${file.name}`}" 
                                class="order-action action-view" 
                                target="_blank" 
                                style="text-decoration: none;">
-                                Lihat Detail
+                                <i class="fas fa-external-link-alt"></i> Lihat Detail
                             </a>
                         </div>
                     </div>
